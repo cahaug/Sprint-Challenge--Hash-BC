@@ -23,12 +23,18 @@ This sprint challenge is divided up into three parts:  Hash tables coding, block
 ## Interview Questions
 
 Explain in detail the workings of a dynamic array:
+    - Well, firstly in responding I would ask for clarification on whether the question is addressing the array Python data type with things being done to it, which might be a dynamic array, or dynamic arrays as in singly and doubly linked lists are dynamic arrays by definition. 
 * What is the runtime complexity to access an array, add or remove from the front, and add or remove from the back?
+    -If we are talking a conventional python array, we can expect O(1) access of items, but O(n) for search, insertion and deletion. If we are talking a dynamic array that is a singly or doubly linked list, our access and search are O(n), but our insertion and deletion times are O(1).
 * What is the worse case scenario if you try to extend the storage size of a dynamic array?
+    - In the case of the contiguous python array, if the computer cannot extend the storage, appending to your current block of memory to a satisfactory degree, and the computer must instantiate and allocate a new, bigger block of memory, and assuming that is available, copy the entire array and all of the items into it.  In the case of a singly or doubly linked list, the blocks of memory do not have to be contiguous and therefore the worst case is that you fill your computer's memory completely to the brim with dynamic array linked list entries then you may have to delete other files to free up some space on your computer or buy more storage to continue extending the size of your array.
 
 Explain how a blockchain is structured. What are the blocks, what is the chain? How is the data organized?
+    - Blocks in a block chain are constructed from a genesis block.  A blockchain is technically a class/object, and the blocks are metaphorical, each block is a representation of the blockchain up to a certain point.  A block is an object made up of an index, a proof, and a previous hash, but might also include data like a transaction ledger and a timestamp of when the block was made.  Each block in the chain points forwards, as it is represented in the "previous_hash" of the next block, but also points backwards, containing the previous hash of the block before it.  By the way hashes work, this preserves the integrity of the data in the blockchain. 
  
 Explain how proof of work functions. How does it operate. How does this protect the chain from attack. What kind of attack is possible?
+    - A proof of work function is a function that takes in the last block on the chain, appends it with a number, and hashes it until the string of the last block in the chain appended with the proof number creates a hash below a certain amount(or in our case with a certain number of leading zeroes).  Then this number is returned to the Blockchain control server with the userId of the miner who found the lucky number, a block is mined and the reward is rewarded.  The only way to obtain a valid proof and mine a block is to guess and check against the last block in the chain, which was mined however much time ago.  Any attacker attempting to manipulate the blockchain, the data stored therein, or change the blocks would have to fight an unsustainable fight of staying as the longest chain in all the mined chains would otherwise disregard the shorter chain.
+    - Fraud is impossible as you cannot manipulate the blockchain or its values without creating hashes that are completely different from what they should be, and is mathematically impossible to manipulate, say, the bitcoin blockchain into giving you thousands of bitcoin.
 
 ## Project Set Up
 
