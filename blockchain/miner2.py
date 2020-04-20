@@ -23,7 +23,7 @@ def proof_of_work(last_proof):
     start = timer()
 
     print("Searching for next proof")
-    proof = 200000
+    proof = 500000
     #  TODO: Your code here
     
     # step 1: encode the proof 
